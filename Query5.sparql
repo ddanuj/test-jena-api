@@ -1,0 +1,16 @@
+PREFIX artist: <https://americanart.si.edu/artist/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
+SELECT DISTINCT ?artist_name
+WHERE {
+  ?artwork rdf:type schema:Artwork ;
+           schema:artworkCreator ?artist ;
+           schema:dateCreated ?date_created .
+  ?artist rdf:type schema:Artist ;
+          schema:artistName ?artist_name .
+  BIND(xsd:integer(strbefore(?date_created,"-")) AS ?start) .
+  BIND(xsd:integer(strafter(?date_created,"-")) AS ?end) .
+  FILTER((?start >= 1990 && ?start <= 2000) || (?end >= 1990 && ?end <= 2000))
+}
+LIMIT 10

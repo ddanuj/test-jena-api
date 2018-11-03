@@ -1,0 +1,16 @@
+PREFIX artist: <https://americanart.si.edu/artist/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
+SELECT ?artist_name ?artist_age
+WHERE {
+  ?artist rdf:type schema:Artist ;
+          schema:artistName ?artist_name ;
+          schema:birthDate ?artist_dob ;
+          schema:deathDate ?artist_dod .
+  BIND(xsd:integer(?artist_dob) AS ?birth) .
+  BIND(xsd:integer(?artist_dod) AS ?death) .
+  BIND(?death - ?birth AS ?artist_age) .
+}
+ORDER BY DESC(?artist_age)
+LIMIT 10

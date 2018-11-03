@@ -1,0 +1,10 @@
+PREFIX artist: <https://americanart.si.edu/artist/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX schema: <http://schema.org/>
+SELECT ?artist_name
+WHERE {
+  ?artist rdf:type schema:Artist ;
+          schema:artistName ?artist_name .
+  FILTER NOT EXISTS {?artist schema:deathDate ?artist_date_of_death }
+}
+LIMIT 10

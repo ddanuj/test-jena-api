@@ -1,0 +1,21 @@
+PREFIX artist: <https://americanart.si.edu/artist/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbpedia: <http://dbpedia.org/resource/>
+
+SELECT ?artist_name
+WHERE {
+  ?artist rdf:type schema:Artist ;
+          schema:artistName ?artist_name ;
+          rdf:value ?artist_dbpedia .
+  BIND(IRI(?artist_dbpedia) as ?artist_dbpedia_uri)
+  SERVICE <http://dbpedia.org/sparql> {
+  	?artist_dbpedia_uri a dbo:Artist .
+    ?artist_dbpedia_uri foaf:gender ?artist_gender .
+  }
+  FILTER regex(?artist_gender, "^female$")
+}
+LIMIT 10

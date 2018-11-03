@@ -1,0 +1,12 @@
+PREFIX artist: <https://americanart.si.edu/artist/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
+SELECT ?artwork_title
+WHERE {
+  ?artwork rdf:type schema:Artwork ;
+           schema:artworkName ?artwork_title ;
+           schema:artworkCreator artist:eastman-johnson-2473 .
+}
+ORDER BY ?artwork_title
+LIMIT 10
