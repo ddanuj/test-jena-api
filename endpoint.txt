@@ -1,1 +1,1 @@
-http://localhost:3030/dataset.html?tab=query&ds=/saam
+http://localhost:3030/dataset.html?ds=/saam
