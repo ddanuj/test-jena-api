@@ -1,7 +1,6 @@
 #+ endpoint: http://localhost:3030/saam/query
+#+ method: POST
 #+ summary: Get Artist name, birth and death date
-#+ tags: 
-#+   - metadata 
 
 PREFIX artist: <https://americanart.si.edu/artist/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
