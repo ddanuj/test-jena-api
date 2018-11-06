@@ -1,3 +1,7 @@
+#+ endpoint: http://192.168.0.1:3030/saam/query
+#+ method: POST
+#+ summary: Get Artist name and age, order by age, oldest artist first
+
 PREFIX artist: <https://americanart.si.edu/artist/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
