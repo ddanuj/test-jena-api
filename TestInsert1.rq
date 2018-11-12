@@ -9,5 +9,5 @@ PREFIX schema: <http://schema.org/>
 INSERT DATA
 {
   artist:Anuj_Doiphode rdf:type schema:Artist;
-                       schema:artistName "ABCD";
+                       schema:artistName "ABCD".
 }
