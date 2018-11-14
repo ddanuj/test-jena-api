@@ -1,12 +1,18 @@
 #+ endpoint: http://192.168.0.1:3030/saam/update
 #+ method: POST
 #+ parameters:
-#+   - g: <http://192.168.0.1:3030/saam>
-#+   - data: DATA
+#+ - name: data
+#+   in: query
+#+   required: true
+#+   type: String
+#+ - name: g
+#+   in: query
+#+   required: true
+#+   type: String
 #+ summary: Create a new artist entry
 
-INSERT DATA
-{ GRAPH <http://192.168.0.1:3030/saam>
+INSERT ?_data
+{ GRAPH ?_g_iri
         {
           <https://americanart.si.edu/artist/Anuj_Doiphode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#/type> <http://schema.org/Artist>
         }
