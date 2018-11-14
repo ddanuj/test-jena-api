@@ -2,14 +2,9 @@
 #+ method: POST
 #+ summary: Create a new artist entry
 
-PREFIX artist: <https://americanart.si.edu/artist/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX schema: <http://schema.org/>
-
 INSERT DATA
 { GRAPH <urn:sparql:tests:insert:data>
         {
-          artist:Anuj_Doiphode rdf:type schema:Artist;
-                               schema:artistName "ABCD".
+          <https://americanart.si.edu/artist/Anuj_Doiphode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#/type> <http://schema.org/Artist>
         }
 }
