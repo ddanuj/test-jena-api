@@ -6,9 +6,8 @@ PREFIX artist: <https://americanart.si.edu/artist/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX schema: <http://schema.org/>
 
-SELECT ?artist_name
+SELECT *
+FROM <urn:sparql:tests:insert:data>
 WHERE {
-  ?artist rdf:type schema:Artist ;
-          schema:artistName ?artist_name .
-  FILTER regex(?artist_name, "^AB")
+  ?s ?p ?o
 }
