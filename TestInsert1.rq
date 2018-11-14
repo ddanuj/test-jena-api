@@ -2,7 +2,7 @@
 #+ method: POST
 #+ summary: Create a new artist entry
 
-INSERT DATA Anuj
+INSERT DATA
 { GRAPH <http://192.168.0.1:3030/saam>
         {
           <https://americanart.si.edu/artist/Anuj_Doiphode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#/type> <http://schema.org/Artist>
